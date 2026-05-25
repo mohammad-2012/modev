@@ -26,7 +26,7 @@ export default function FooterLink({ to, children }) {
       to={to}
       style={{ boxShadow: darkModeShadow }}
       className={({ isActive }) =>
-        `group  text-grey-0  flex items-center justify-between gap-3 px-4 py-2 transition-all duration-300 font-medium rounded-xl w-full ${
+        `group text-grey-0 flex items-center justify-between gap-3 px-4 py-2 transition-all duration-300 font-medium rounded-xl w-full ${
           isActive
             ? "text-accent-primary bg-accent-primary/10 shadow-[0_10px_25px_-5px_rgba(0,180,216,0.4),0_8px_10px_-6px_rgba(0,180,216,0.2),inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:shadow-[0_10px_25px_-5px_rgba(0,255,170,0.3),0_8px_10px_-6px_rgba(0,255,170,0.15),inset_0_1px_0_0_rgba(255,255,255,0.05)]"
             : "text-text-secondary hover:text-accent-primary hover:bg-secondary/50 hover:shadow-[0_10px_20px_-5px_rgba(0,0,0,0.15),0_4px_6px_-4px_rgba(0,0,0,0.05),inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:hover:shadow-[0_10px_20px_-5px_rgba(0,255,170,0.2),0_4px_6px_-4px_rgba(0,0,0,0.3),inset_0_1px_0_0_rgba(255,255,255,0.03)]"
@@ -58,7 +58,7 @@ export default function FooterLink({ to, children }) {
           </div>
           <FaArrowRight
             size={14}
-            className={`transition-all duration-300 ${
+            className={`hidden sm:block transition-all duration-300 ${
               isActive
                 ? "opacity-100 translate-x-0 text-accent-primary"
                 : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-accent-primary"

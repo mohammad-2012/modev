@@ -1,35 +1,74 @@
 import { FaCode } from "react-icons/fa";
+import { useDarkMode } from "../context/DarkModeContext";
 
 export default function LoadingSpinner() {
+  const { isDarkMode } = useDarkMode();
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center transition-colors duration-300"
+      style={{
+        backgroundColor: isDarkMode ? "#0a0a0a" : "#ffffff",
+      }}
+    >
       <div className="flex flex-col items-center justify-center">
         <div className="relative">
-          <div className="w-24 h-24 rounded-full border-4 border-border border-t-accent-primary border-r-accent-secondary animate-spin"></div>
+          <div
+            className="w-28 h-28 rounded-full border-4 animate-spin"
+            style={{
+              borderColor: isDarkMode
+                ? "rgba(255,255,255,0.1)"
+                : "rgba(0,0,0,0.1)",
+              borderTopColor: "var(--accent-primary)",
+              borderRightColor: "var(--accent-secondary)",
+            }}
+          ></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-12 h-12 rounded-full bg-accent-primary/10 flex items-center justify-center animate-pulse backdrop-blur-sm">
-              <FaCode className="text-accent-primary text-2xl animate-pulse" />
+            <div
+              className="w-14 h-14 rounded-full flex items-center justify-center animate-pulse"
+              style={{
+                backgroundColor: isDarkMode
+                  ? "rgba(255,255,255,0.05)"
+                  : "rgba(0,0,0,0.05)",
+              }}
+            >
+              <FaCode
+                className="text-3xl animate-pulse"
+                style={{ color: "var(--accent-primary)" }}
+              />
             </div>
           </div>
         </div>
 
         <div className="mt-8 flex gap-2">
           <div
-            className="w-3 h-3 bg-accent-primary rounded-full animate-bounce"
-            style={{ animationDelay: "0ms" }}
+            className="w-3 h-3 rounded-full animate-bounce"
+            style={{
+              backgroundColor: "var(--accent-primary)",
+              animationDelay: "0ms",
+            }}
           ></div>
           <div
-            className="w-3 h-3 bg-accent-secondary rounded-full animate-bounce"
-            style={{ animationDelay: "150ms" }}
+            className="w-3 h-3 rounded-full animate-bounce"
+            style={{
+              backgroundColor: "var(--accent-secondary)",
+              animationDelay: "150ms",
+            }}
           ></div>
           <div
-            className="w-3 h-3 bg-accent-primary rounded-full animate-bounce"
-            style={{ animationDelay: "300ms" }}
+            className="w-3 h-3 rounded-full animate-bounce"
+            style={{
+              backgroundColor: "var(--accent-primary)",
+              animationDelay: "300ms",
+            }}
           ></div>
         </div>
 
-        <p className="text-white mt-4 text-sm tracking-wide animate-pulse">
+        <p
+          className="mt-4 text-sm tracking-wide animate-pulse font-medium"
+          style={{ color: isDarkMode ? "#ffffff" : "#0a0a0a" }}
+        >
           Loading...
         </p>
       </div>

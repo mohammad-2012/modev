@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { FaReact, FaGitAlt, FaGithub } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -17,6 +18,8 @@ import MotivationalSentence from "../ui/MotivationalSentence";
 import Timeline from "../ui/Timeline";
 
 export default function AboutMe() {
+  const { t } = useTranslation();
+
   const skills = [
     {
       name: "HTML5",
@@ -85,12 +88,13 @@ export default function AboutMe() {
       <div className="max-w-[1200px] mx-auto">
         <PageTopic>
           <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
-            Know More
-            <span className="block text-accent-primary mt-2">About Me</span>
+            {t("aboutMe.title")}
+            <span className="block text-accent-primary mt-2">
+              {t("aboutMe.subtitle")}
+            </span>
           </h1>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Let me introduce myself and share my journey in the world of
-            programming
+            {t("aboutMe.description")}
           </p>
         </PageTopic>
 
@@ -99,7 +103,6 @@ export default function AboutMe() {
             <PersonalInfoSection />
             <MyJourneySection />
           </div>
-
           <MySkillSectionOfAboutMe skills={skills} />
         </div>
 
@@ -107,11 +110,10 @@ export default function AboutMe() {
 
         <MotivationalSentence>
           <p className="text-text-primary italic text-lg">
-            "The only limit to our realization of tomorrow is our doubts of
-            today."
+            "{t("aboutMe.quote")}"
           </p>
           <p className="text-text-secondary text-sm mt-2">
-            - Keep coding, keep growing -
+            {t("aboutMe.quoteAuthor")}
           </p>
         </MotivationalSentence>
       </div>

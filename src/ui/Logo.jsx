@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDarkMode } from "../context/DarkModeContext";
 
-export default function Logo() {
+export default function Logo({ size }) {
   const { isDarkMode } = useDarkMode();
 
   return (
@@ -9,7 +9,10 @@ export default function Logo() {
       <img
         src={`../../public/Logo/${isDarkMode ? "Dark-Mode-Logo.webp" : "Light-Mode-Logo.webp"}`}
         alt="Logo"
-        className="h-14 w-auto"
+        className={`
+          ${size}
+          w-auto
+          `}
       />
     </Link>
   );

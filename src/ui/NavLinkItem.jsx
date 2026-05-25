@@ -1,14 +1,14 @@
 import { NavLink } from "react-router";
 import { useState } from "react";
 
-export default function NavLinkItem({ children, path }) {
+export default function NavLinkItem({ children, path, onClick }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <NavLink to={path}>
+    <NavLink to={path} onClick={onClick}>
       {({ isActive }) => (
         <div
-          className="relative text-sm md:text-base font-semibold tracking-wide transition-all duration-300"
+          className="relative text-lg md:text-base font-semibold tracking-wide transition-all duration-300 cursor-pointer"
           style={{
             color: isActive
               ? "var(--accent-primary)"

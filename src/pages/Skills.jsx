@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   FaReact,
   FaCss3Alt,
@@ -14,7 +15,6 @@ import {
   SiRedux,
   SiReactquery,
 } from "react-icons/si";
-
 import PageTopic from "../ui/PageTopic";
 import SkillCard from "../ui/SkillCard";
 import OverallSkills from "../ui/OverallSkills";
@@ -22,6 +22,8 @@ import MotivationalSentence from "../ui/MotivationalSentence";
 import CertificatesSection from "../ui/CertificatesSection";
 
 export default function Skills() {
+  const { t } = useTranslation();
+
   const skillCategories = [
     {
       name: "Front-End Core",
@@ -116,10 +118,10 @@ export default function Skills() {
   ];
 
   const overallSkills = [
-    { name: "Problem Solving", percent: 80 },
-    { name: "Clean Code", percent: 85 },
-    { name: "Responsive Design", percent: 90 },
-    { name: "Team Work", percent: 75 },
+    { name: t("skills.problemSolving"), percent: 80 },
+    { name: t("skills.cleanCode"), percent: 85 },
+    { name: t("skills.responsiveDesign"), percent: 90 },
+    { name: t("skills.teamWork"), percent: 75 },
   ];
 
   return (
@@ -127,10 +129,13 @@ export default function Skills() {
       <div className="max-w-[1200px] mx-auto">
         <PageTopic>
           <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
-            What I<span className="block text-accent-primary mt-2">Can Do</span>
+            {t("skills.title")}
+            <span className="block text-accent-primary mt-2">
+              {t("skills.subtitle")}
+            </span>
           </h1>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Here are my technical skills and expertise in web development
+            {t("skills.description")}
           </p>
         </PageTopic>
 
@@ -150,8 +155,7 @@ export default function Skills() {
 
         <MotivationalSentence>
           <p className="text-text-primary italic text-lg">
-            "Always learning, always growing. Every line of code is a step
-            forward."
+            "{t("skills.quote")}"
           </p>
         </MotivationalSentence>
       </div>

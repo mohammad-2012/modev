@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useDarkMode } from "../context/DarkModeContext";
 
 export default function ChangeLanguage() {
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState("EN");
+  const [language, setLanguage] = useState(i18n.language.toUpperCase());
   const dropdownRef = useRef(null);
   const { isDarkMode } = useDarkMode();
 
@@ -17,7 +19,12 @@ export default function ChangeLanguage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    setLanguage(i18n.language.toUpperCase());
+  }, [i18n.language]);
+
   const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang.toLowerCase());
     setLanguage(lang);
     setIsOpen(false);
   };

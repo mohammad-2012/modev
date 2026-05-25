@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { FaRocket } from "react-icons/fa";
 import { useDarkModeShadow } from "../context/DarkModeShadow";
 
 export default function MyJourneySection() {
   const { darkModeShadow } = useDarkModeShadow();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -11,27 +13,25 @@ export default function MyJourneySection() {
     >
       <h2 className="text-2xl font-bold text-text-primary mb-6 flex items-center gap-2">
         <FaRocket className="text-accent-primary" />
-        My Journey
+        {t("aboutMe.myJourney")}
       </h2>
       <p className="text-text-secondary leading-relaxed mb-4">
-        I started my programming journey{" "}
-        <span className="text-accent-primary font-semibold">1.5 years ago</span>{" "}
-        at the age of 12. It was a challenging path filled with obstacles, but
-        my passion for coding kept me going.
+        {t("myJourney.text1")}
+        <span className="text-accent-primary font-semibold">
+          {t("myJourney.highlight1")}
+        </span>
+        {t("myJourney.text1_2")}
       </p>
       <p className="text-text-secondary leading-relaxed">
-        Today, I'm proud to say that I've overcome those difficulties and become
-        a
+        {t("myJourney.text2")}
         <span className="text-accent-primary font-semibold">
-          {" "}
-          Front-End Developer
-        </span>{" "}
-        with strong skills in modern web technologies. I'm now on an exciting
-        journey toward becoming a{" "}
-        <span className="text-accent-primary font-semibold">
-          Full-Stack Developer
+          {t("myJourney.highlight2")}
         </span>
-        .
+        {t("myJourney.text2_2")}
+        <span className="text-accent-primary font-semibold">
+          {t("myJourney.highlight3")}
+        </span>
+        {t("myJourney.text2_3")}
       </p>
     </div>
   );

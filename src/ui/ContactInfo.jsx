@@ -4,7 +4,7 @@ export default function ContactInfo({ contactInfo, socialLinks }) {
   const { darkModeShadow } = useDarkModeShadow();
 
   return (
-    <div className="lg:col-span-1 space-y-4">
+    <div className="w-full lg:col-span-1 space-y-4">
       {contactInfo.map((info, index) => (
         <div
           key={index}
@@ -23,7 +23,7 @@ export default function ContactInfo({ contactInfo, socialLinks }) {
                 href={info.link}
                 target={info.link.startsWith("http") ? "_blank" : "_self"}
                 rel="noopener noreferrer"
-                className="text-text-primary font-medium text-sm hover:text-accent-primary transition-colors"
+                className="text-text-primary font-medium text-sm hover:text-accent-primary transition-colors break-all"
               >
                 {info.value}
               </a>
@@ -40,17 +40,19 @@ export default function ContactInfo({ contactInfo, socialLinks }) {
         <h3 className="text-text-secondary text-xs uppercase tracking-wide mb-3 text-center">
           Follow Me
         </h3>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-3">
           {socialLinks.map((social, index) => (
             <a
               key={index}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/20 text-accent-primary transition-all duration-300 hover:scale-105 hover:bg-accent-primary hover:text-grey-0 group"
+              className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-full bg-accent-primary/20 text-accent-primary transition-all duration-300 hover:scale-105 hover:bg-accent-primary hover:text-grey-0 group"
             >
-              <span className="text-xl">{social.icon}</span>
-              <span className="text-sm font-medium">{social.label}</span>
+              <span className="text-base md:text-xl">{social.icon}</span>
+              <span className="text-sm md:text-sm font-medium">
+                {social.label}
+              </span>
             </a>
           ))}
         </div>

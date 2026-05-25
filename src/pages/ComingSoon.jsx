@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useDarkModeShadow } from "../context/DarkModeShadow";
 import { FaTools, FaTelegram } from "react-icons/fa";
 
 export default function ComingSoon() {
   const { darkModeShadow } = useDarkModeShadow();
+  const { t } = useTranslation();
 
   return (
     <div className="h-dvh flex items-center justify-center px-4 text-grey-0">
@@ -15,19 +17,19 @@ export default function ComingSoon() {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-accent-primary mb-4">
-          Coming Soon
+          {t("comingSoon.title")}
         </h1>
 
         <div className="w-24 h-1 bg-gradient-to-r from-accent-primary to-accent-secondary mx-auto mb-6 rounded-full"></div>
 
         <p className="text-text-secondary text-lg md:text-xl mb-8">
-          This section is under development. <br />
-          I'm working hard to bring something amazing for you!
+          {t("comingSoon.description")}
+          <br />
+          {t("comingSoon.description2")}
         </p>
 
         <p className="text-text-secondary/70 text-sm mb-8">
-          Due to the blocking of sites like Vercel & GitHub, this section will
-          be completed soon.
+          {t("comingSoon.note")}
         </p>
 
         <div className="flex justify-center gap-3 mb-8">

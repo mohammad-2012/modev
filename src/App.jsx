@@ -4,11 +4,12 @@ import { DarkModeProvider } from "./context/DarkModeContext";
 import AppLayout from "./ui/AppLayout";
 import LoadingSpinner from "./ui/LoadingSpinner";
 import PageNotFound from "./ui/PageNotFound";
+import ScrollToTop from "./ui/ScrollToTop.";
 
 const Home = lazy(() => import("./pages/Home"));
 const AboutMe = lazy(() => import("./pages/AboutMe"));
 const Skills = lazy(() => import("./pages/Skills"));
-const Projects = lazy(() => import("./pages/Projects"));
+// const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Certificates = lazy(() => import("./pages/Certificates"));
 const ComingSoon = lazy(() => import("./pages/ComingSoon"));
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <DarkModeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate to="/home" replace />} />
@@ -56,7 +58,8 @@ export default function App() {
               path="/projects"
               element={
                 <Suspense fallback={<LoadingSpinner />}>
-                  <Projects />
+                  {/* <Projects /> */}
+                  <ComingSoon />
                 </Suspense>
               }
             />

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   FaGraduationCap,
   FaMapMarkerAlt,
@@ -8,6 +9,7 @@ import { useDarkModeShadow } from "../context/DarkModeShadow";
 
 export default function PersonalInfoSection() {
   const { darkModeShadow } = useDarkModeShadow();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -16,7 +18,7 @@ export default function PersonalInfoSection() {
     >
       <h2 className="text-2xl font-bold text-text-primary mb-6 flex items-center gap-2">
         <FaHeart className="text-accent-primary" />
-        Personal Info
+        {t("aboutMe.personalInfo")}
       </h2>
 
       <div className="space-y-4">
