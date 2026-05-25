@@ -1,0 +1,508 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "tanha";
+  src:
+    url("/public/Fonts/Tanha.woff2") format("woff2"),
+    url("/public/Fonts/Tanha.woff") format("woff"),
+    url("/public/Fonts/Tanha.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --color-grey-0: #000000;
+  --color-grey-50: #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
+
+  --color-blue-100: #e0f2fe;
+  --color-blue-700: #0369a1;
+  --color-green-100: #dcfce7;
+  --color-green-700: #15803d;
+
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f1f1;
+  --text-primary: #0a0a0a;
+  --text-secondary: #334155;
+  --accent-primary: #00b4d8;
+  --accent-secondary: #2d34af;
+  --border: #e2e8f0;
+  --card-bg: #ffffff;
+  --success: #10b981;
+}
+
+.dark {
+  --color-grey-0: #ffffff;
+  --color-grey-50: #111827;
+  --color-grey-100: #1f2937;
+  --color-grey-200: #374151;
+  --color-grey-300: #4b5563;
+  --color-grey-400: #6b7280;
+  --color-grey-500: #9ca3af;
+  --color-grey-600: #d1d5db;
+  --color-grey-700: #e5e7eb;
+  --color-grey-800: #f3f4f6;
+  --color-grey-900: #f9fafb;
+
+  --color-blue-100: #075985;
+  --color-blue-700: #e0f2fe;
+  --color-green-100: #166534;
+  --color-green-700: #dcfce7;
+
+  --color-brand-50: #312e81;
+  --color-brand-100: #3730a3;
+  --color-brand-200: #4338ca;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #818cf8;
+  --color-brand-700: #a5b4fc;
+  --color-brand-800: #c7d2fe;
+  --color-brand-900: #e0e7ff;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
+
+  --bg-primary: #000000;
+  --bg-secondary: #262626;
+  --text-primary: #ededee;
+  --text-secondary: #ebebeb;
+  --accent-primary: #00ffaae9;
+  --accent-secondary: #00b4d8;
+  --border: #1f1f1f;
+  --card-bg: #0f0f0f;
+  --success: #00ffaa;
+}
+
+@theme {
+  --font-tanha: "tanha", "Segoe UI", "Roboto", system-ui, sans-serif;
+
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-tanha);
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+@layer components {
+  .bg-primary {
+    background-color: var(--bg-primary);
+  }
+  .bg-secondary {
+    background-color: var(--bg-secondary);
+  }
+  .text-primary {
+    color: var(--text-primary);
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .bg-accent-primary {
+    background-color: var(--accent-primary);
+  }
+  .text-accent-primary {
+    color: var(--accent-primary);
+  }
+  .bg-card {
+    background-color: var(--card-bg);
+  }
+  .text-success {
+    color: var(--success);
+  }
+  .border-border {
+    border-color: var(--border);
+  }
+
+  .bg-grey-0 {
+    background-color: var(--color-grey-0);
+  }
+  .bg-grey-50 {
+    background-color: var(--color-grey-50);
+  }
+  .bg-grey-100 {
+    background-color: var(--color-grey-100);
+  }
+  .bg-grey-200 {
+    background-color: var(--color-grey-200);
+  }
+  .bg-grey-300 {
+    background-color: var(--color-grey-300);
+  }
+  .bg-grey-400 {
+    background-color: var(--color-grey-400);
+  }
+  .bg-grey-500 {
+    background-color: var(--color-grey-500);
+  }
+  .bg-grey-600 {
+    background-color: var(--color-grey-600);
+  }
+  .bg-grey-700 {
+    background-color: var(--color-grey-700);
+  }
+  .bg-grey-800 {
+    background-color: var(--color-grey-800);
+  }
+  .bg-grey-900 {
+    background-color: var(--color-grey-900);
+  }
+
+  .text-grey-0 {
+    color: var(--color-grey-0);
+  }
+  .text-grey-50 {
+    color: var(--color-grey-50);
+  }
+  .text-grey-100 {
+    color: var(--color-grey-100);
+  }
+  .text-grey-200 {
+    color: var(--color-grey-200);
+  }
+  .text-grey-300 {
+    color: var(--color-grey-300);
+  }
+  .text-grey-400 {
+    color: var(--color-grey-400);
+  }
+  .text-grey-500 {
+    color: var(--color-grey-500);
+  }
+  .text-grey-600 {
+    color: var(--color-grey-600);
+  }
+  .text-grey-700 {
+    color: var(--color-grey-700);
+  }
+  .text-grey-800 {
+    color: var(--color-grey-800);
+  }
+  .text-grey-900 {
+    color: var(--color-grey-900);
+  }
+
+  .bg-blue-100 {
+    background-color: var(--color-blue-100);
+  }
+  .bg-blue-700 {
+    background-color: var(--color-blue-700);
+  }
+  .text-blue-100 {
+    color: var(--color-blue-100);
+  }
+  .text-blue-700 {
+    color: var(--color-blue-700);
+  }
+
+  .bg-green-100 {
+    background-color: var(--color-green-100);
+  }
+  .bg-green-700 {
+    background-color: var(--color-green-700);
+  }
+  .text-green-100 {
+    color: var(--color-green-100);
+  }
+  .text-green-700 {
+    color: var(--color-green-700);
+  }
+
+  .bg-brand-50 {
+    background-color: var(--color-brand-50);
+  }
+  .bg-brand-100 {
+    background-color: var(--color-brand-100);
+  }
+  .bg-brand-200 {
+    background-color: var(--color-brand-200);
+  }
+  .bg-brand-500 {
+    background-color: var(--color-brand-500);
+  }
+  .bg-brand-600 {
+    background-color: var(--color-brand-600);
+  }
+  .bg-brand-700 {
+    background-color: var(--color-brand-700);
+  }
+  .bg-brand-800 {
+    background-color: var(--color-brand-800);
+  }
+  .bg-brand-900 {
+    background-color: var(--color-brand-900);
+  }
+
+  .text-brand-50 {
+    color: var(--color-brand-50);
+  }
+  .text-brand-100 {
+    color: var(--color-brand-100);
+  }
+  .text-brand-200 {
+    color: var(--color-brand-200);
+  }
+  .text-brand-500 {
+    color: var(--color-brand-500);
+  }
+  .text-brand-600 {
+    color: var(--color-brand-600);
+  }
+  .text-brand-700 {
+    color: var(--color-brand-700);
+  }
+  .text-brand-800 {
+    color: var(--color-brand-800);
+  }
+  .text-brand-900 {
+    color: var(--color-brand-900);
+  }
+
+  .shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  .shadow-md {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .border-grey-200 {
+    border-color: var(--color-grey-200);
+  }
+  .border-grey-300 {
+    border-color: var(--color-grey-300);
+  }
+
+  .bg-primary\/80 {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  .dark .bg-primary\/80 {
+    background-color: rgb(0, 0, 0);
+  }
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+}
+
+.shadow-neon {
+  box-shadow:
+    0 0 10px var(--accent-primary),
+    0 0 5px var(--accent-secondary);
+}
+
+/* /////////////////////////// */
+
+.blob-animation {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 48% 52% 68% 32% / 42% 28% 72% 58%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    #23a6d5,
+    #e73c7e,
+    var(--accent-primary)
+  );
+  background-size: 400% 400%;
+  animation:
+    blobber 20s ease-in-out infinite,
+    gradientShift 8s ease infinite;
+}
+
+.blob-animation::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-radius: inherit;
+  background-color: var(--bg-primary);
+  background-image: var(--user-image, url("../../public/my-image-fake.png"));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: normal;
+  animation: wobbler 8s ease-in-out infinite;
+}
+
+@keyframes blobber {
+  0% {
+    border-radius: 48% 52% 68% 32% / 42% 28% 72% 58%;
+  }
+  25% {
+    border-radius: 58% 42% 57% 43% / 53% 45% 55% 47%;
+  }
+  50% {
+    border-radius: 44% 56% 32% 68% / 69% 26% 74% 31%;
+  }
+  75% {
+    border-radius: 62% 38% 43% 57% / 55% 60% 40% 45%;
+  }
+  100% {
+    border-radius: 48% 52% 68% 32% / 42% 28% 72% 58%;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes wobbler {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.blob-animation:hover {
+  animation-play-state: paused;
+}
+
+.blob-animation:hover::after {
+  animation-play-state: paused;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* 
+پس‌زمینه اصلی bg-primary
+پس‌زمینه ثانویه bg-secondary
+پس‌زمینه کارت bg-card
+متن اصلی text-primary
+متن ثانویه text-secondary
+رنگ اکسن (دکمه/لینک) text-accent-primary یا bg-accent-primary
+رنگ موفقیت text-success
+حاشیه border-border
+ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-secondary);
+}
